@@ -33,10 +33,12 @@
 										<a href="index.html">Home</a>
 										<ul>
 											<li><a href="categories.html">Categories</a></li>
-											<li><a href="product.html">Product</a></li>
+<!-- 											<li><a href="product.html">Product</a></li> -->
 											<li><a href="cart.html">Cart</a></li>
 											<li><a href="checkout.html">Check out</a></li>
-											<li><a href="contact.html">Contact</a></li>
+<!-- 											<li><a href="contact.html">Contact</a></li> -->
+											<li><a href="/register">Register</a></li>
+											<li><a href="/login">Login</a></li>
 										</ul>
 									</li>
 									<li class="hassubs">
@@ -52,6 +54,8 @@
 									<li><a href="#">Accessories</a></li>
 									<li><a href="#">Offers</a></li>
 									<li><a href="contact.html">Contact</a></li>
+									<li><a href="/register">Register</a></li>
+									<li><a href="/login">Login</a></li>
 								</ul>
 							</nav>
 							<div class="header_extra ml-auto">
@@ -141,10 +145,12 @@
 						<a href="index.html">Home<i class="fa fa-angle-down"></i></a>
 						<ul class="page_menu_selection menu_mm">
 							<li class="page_menu_item menu_mm"><a href="categories.html">Categories<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="product.html">Product<i class="fa fa-angle-down"></i></a></li>
+<!-- 						<li class="page_menu_item menu_mm"><a href="product.html">Product<i class="fa fa-angle-down"></i></a></li> -->
 							<li class="page_menu_item menu_mm"><a href="cart.html">Cart<i class="fa fa-angle-down"></i></a></li>
 							<li class="page_menu_item menu_mm"><a href="checkout.html">Checkout<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i class="fa fa-angle-down"></i></a></li>
+<!-- 						<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i class="fa fa-angle-down"></i></a></li> -->
+							<li class="page_menu_item menu_mm"><a href="/register">Register<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="/login">Login<i class="fa fa-angle-down"></i></a></li>
 						</ul>
 					</li>
 					<li class="page_menu_item has-children menu_mm">
