@@ -10,24 +10,29 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 @Controller
 public class IndexContoller {
-    private String appMode;
+	private String appMode;
 
-    @Autowired
-    public IndexContoller(Environment environment){
-        appMode = environment.getProperty("app-mode");
-    }
+	@Autowired
+	public IndexContoller(Environment environment) {
+		appMode = environment.getProperty("app-mode");
+	}
 
-    @RequestMapping("/register")
-    public String register(Model model){
+	@RequestMapping("/")
+	public String index(Model model) {
+		return "index";
+	}
+
+	@RequestMapping("/register")
+	public String register(Model model) {
 //    	if (Request.valueOf("register_button") != null) {
 //			
 //		}
-        return "register";
-    }
-    
-    @RequestMapping("/login")
-    public String login(Model model) {
-    	return "login";
-    }
-    
+		return "register";
+	}
+
+	@RequestMapping("/login")
+	public String login(Model model) {
+		return "login";
+	}
+
 }
