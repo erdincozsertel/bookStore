@@ -19,9 +19,9 @@ public class IndexContoller {
 
     @RequestMapping("/register")
     public String register(Model model){
-    	if (Request.valueOf("register_button") != null) {
-			
-		}
+//    	if (Request.valueOf("register_button") != null) {
+//			
+//		}
         return "register";
     }
     
