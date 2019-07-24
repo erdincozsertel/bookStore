@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.erdincozsertel.bookstore.domain.User;
 import com.erdincozsertel.bookstore.domain.UserLogin;
 
 @Controller
@@ -40,6 +41,7 @@ public class IndexContoller {
 	@GetMapping("/login")
 	public String login(Model model) {
 		model.addAttribute("userLogin", new UserLogin());
+		model.addAttribute("user", new User());
 		return "login";
 	}
 

@@ -1,7 +1,9 @@
 package com.erdincozsertel.bookstore.domain;
 
+
 import java.sql.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +32,8 @@ public class User {
 
 	private Gender gender;
 
-	Date birthDate;
+	@Basic
+	private Date birthDate;
 
 	public User() {
 	}
