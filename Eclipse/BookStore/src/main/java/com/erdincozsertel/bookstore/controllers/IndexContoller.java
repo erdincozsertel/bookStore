@@ -1,12 +1,19 @@
 package com.erdincozsertel.bookstore.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
+import com.erdincozsertel.bookstore.domain.UserLogin;
 
 @Controller
 public class IndexContoller {
@@ -30,8 +37,9 @@ public class IndexContoller {
 		return "register";
 	}
 
-	@RequestMapping("/login")
+	@GetMapping("/login")
 	public String login(Model model) {
+		model.addAttribute("userLogin", new UserLogin());
 		return "login";
 	}
 

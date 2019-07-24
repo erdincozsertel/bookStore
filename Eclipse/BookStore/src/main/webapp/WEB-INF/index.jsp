@@ -43,6 +43,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
+          <li class="nav-item">
+          	<a class="nav-link" href="/login">Login</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -211,7 +214,6 @@
     </div>
     <!-- /.container -->
   </footer>
-
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

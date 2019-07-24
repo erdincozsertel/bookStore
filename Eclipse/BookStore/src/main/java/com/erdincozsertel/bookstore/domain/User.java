@@ -16,11 +16,13 @@ public class User {
 	private Integer id;
 	private String name;
 	private String surname;
-	
+
 	private String username;
 	private String password;
-	
-	private Integer isAdmin;
+
+	private String email;
+
+	private Integer accountType;
 
 	public enum Gender {
 		MALE, FEMALE
@@ -33,15 +35,16 @@ public class User {
 	public User() {
 	}
 
-	public User(Integer id, String name, String surname, String username, String password, Integer isAdmin,
-			Gender gender, Date birthDate) {
+	public User(Integer id, String name, String surname, String username, String password, String email,
+			Integer accountType, Gender gender, Date birthDate) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.username = username;
 		this.password = password;
-		this.isAdmin = isAdmin;
+		this.email = email;
+		this.accountType = accountType;
 		this.gender = gender;
 		this.birthDate = birthDate;
 	}
@@ -82,14 +85,6 @@ public class User {
 		return id;
 	}
 
-	public Integer getIsAdmin() {
-		return isAdmin;
-	}
-
-	public void setIsAdmin(Integer isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
 	public Gender getGender() {
 		return gender;
 	}
@@ -105,5 +100,22 @@ public class User {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(Integer accountType) {
+		this.accountType = accountType;
+	}
+	
 
 }
