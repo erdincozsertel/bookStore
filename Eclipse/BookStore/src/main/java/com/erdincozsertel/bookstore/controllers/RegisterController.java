@@ -1,28 +1,89 @@
 package com.erdincozsertel.bookstore.controllers;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.sql.Date;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.erdincozsertel.bookstore.domain.User;
+import com.erdincozsertel.bookstore.domain.UserLogin;
+import com.erdincozsertel.bookstore.domain.User.Gender;
 
 @Controller
 public class RegisterController {
 
-//	@Override
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//		response.setContentType("text/html");
-//
-//		String username = request.getParameter("username");
-//		String password = request.getParameter("password");
-//		String genderParameter = request.getParameter("gender");
-//		Gender gender = Gender.valueOf(genderParameter);
-////		java.util.Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("birthDate"));
-////		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//		LocalDate localBirthDate = LocalDate.parse(request.getParameter("birthDate"));
-//		Date birthDate = Date.valueOf(localBirthDate);
-//
-//		if (username.isEmpty() || password.isEmpty() || genderParameter.isEmpty() || birthDate == null) {
-//			RequestDispatcher req = request.getRequestDispatcher("/WEB-INF/register.html");
-//			req.include(request, response);
-//		} else {
+	@PostMapping("/register")
+	public String registerSubmit(@Valid @ModelAttribute("user") User user, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			return "error";
+		}
+		String name = user.getName();
+		String surname = user.getSurname();
+
+		String username = user.getUsername();
+		String password = user.getPassword();
+
+		String email = user.getEmail();
+
+		Integer accountType;
+
+		if (user.getAccountType() != null) {
+			accountType = user.getAccountType();
+		} else {
+			accountType = 0;
+		}
+
+		user.setAccountType(accountType);
+
+		Gender gender = user.getGender();
+		Date birthDate = user.getBirthDate();
+
+		if (name != null || surname != null || username != null || password != null || email != null
+				|| accountType != null || gender != null || birthDate != null) {
+			model.addAttribute("userLogin", new UserLogin());
+			model.addAttribute("user", new User());
+			return "login";
+		} else {
+			SecureRandom random = new SecureRandom();
+			byte[] salt = new byte[16];
+			user.setSalt(salt);
+			random.nextBytes(salt);
+			try {
+				KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+				SecretKeyFactory factory;
+				factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+				byte[] hash = factory.generateSecret(spec).getEncoded();
+				password = hash.toString();
+			} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (user.getPassword() == password || user.getSalt() == salt) {
+				model.addAttribute("userLogin", new UserLogin());
+				model.addAttribute("user", new User());
+				return "login";				
+			} else {
+				user.setPassword(password);
+				user.setSalt(salt);
+				//TODO:Insert to database
+			}
+
+		}
+
+		return "result";
+	}
+//		else {
 //			boolean insertSuccess = false;
 //			User user = new User(username, password, gender, birthDate);
 //

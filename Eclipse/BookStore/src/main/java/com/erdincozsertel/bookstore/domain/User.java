@@ -1,6 +1,5 @@
 package com.erdincozsertel.bookstore.domain;
 
-
 import java.sql.Date;
 
 import javax.persistence.Basic;
@@ -21,6 +20,7 @@ public class User {
 
 	private String username;
 	private String password;
+	private byte[] salt;
 
 	private String email;
 
@@ -38,7 +38,7 @@ public class User {
 	public User() {
 	}
 
-	public User(Integer id, String name, String surname, String username, String password, String email,
+	public User(Integer id, String name, String surname, String username, String password, byte[] salt, String email,
 			Integer accountType, Gender gender, Date birthDate) {
 		super();
 		this.id = id;
@@ -46,6 +46,7 @@ public class User {
 		this.surname = surname;
 		this.username = username;
 		this.password = password;
+		this.salt = salt;
 		this.email = email;
 		this.accountType = accountType;
 		this.gender = gender;
@@ -119,6 +120,13 @@ public class User {
 	public void setAccountType(Integer accountType) {
 		this.accountType = accountType;
 	}
-	
+
+	public byte[] getSalt() {
+		return salt;
+	}
+
+	public void setSalt(byte[] salt) {
+		this.salt = salt;
+	}
 
 }

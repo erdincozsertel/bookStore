@@ -24,16 +24,14 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="/"><img src="book.png" alt="logo" style="width:70px;"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
@@ -44,8 +42,10 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
-          <li class="nav-item">
-          	<a class="nav-link" href="#">Login</a>
+          <li class="nav-item active">
+          	<a class="nav-link" href="/login">Log in
+          	  <span class="sr-only">(current)</span>
+          	</a>
           </li>
         </ul>
       </div>
@@ -81,7 +81,7 @@
   							<!-- Button -->
 
   							<div class="col-sm-12 controls">
-  								 <input id="btn-login" type="submit" value="Login" class="btn btn-success"/>
+  								 <input id="btn-login" type="submit" value="Log in" class="btn btn-success"/>
   							</div>
   						</div>
   						
@@ -106,7 +106,7 @@
   				<div class="panel-title">Sign Up</div>
   				<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
  			</div>  
-  			<div class="panel-body" >
+  			<div class="panel-body" style="padding-top:30px">
   				<form:form id="signupform" class="form-horizontal" action="/register" modelAttribute="user" method="post">
   					<div id="signupalert" style="display:none" class="alert alert-danger">
   						<p>Error:</p>
@@ -146,22 +146,21 @@
                                 <div class="form-group">
                                     <label for="birthDate" class="col-md-3 control-label">Birth Date</label>
                                     <div class="col-md-9">
-                                        <form:input path="birthdate" type="date" id ="register-birthdate" class="form-control" name="birthDate" required="required"/>
+                                        <form:input path="birthDate" type="date" id ="register-birthdate" class="form-control" name="birthDate" required="required"/>
                                     </div>
                                 </div>
                                  <div class="form-group">
                                     <label for="gender" class="col-md-3 control-label">Gender</label>
                                     <div class="col-md-9">
-                                        <form:input path="gender" type="radio" id="register-gender" class="form-control" name="gender" value="MALE" checked="checked"/> Male
-  										<form:input path="gender" type="radio" id="register-gender" class="form-control" name="gender" value="FEMALE"/> Female
+                                        <form:radiobutton path="gender" id="register-gender" name="gender" value="MALE" checked="checked"/> Male
+  										<form:radiobutton path="gender" id="register-gender" name="gender" value="FEMALE"/> Female
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <!-- Button -->                                        
+                                    <!-- Button -->                                      
                                     <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
-                                        <span style="margin-left:8px;">or</span>  
+                                        <input id="btn-signup" type="submit" value="Sign up" class="btn btn-info"/>
                                     </div>
                                 </div>
   				</form:form>
