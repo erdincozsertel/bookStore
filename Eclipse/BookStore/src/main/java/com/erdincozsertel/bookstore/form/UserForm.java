@@ -1,6 +1,6 @@
-package com.erdincozsertel.bookstore.domain;
+package com.erdincozsertel.bookstore.form;
 
-public class UserLogin {
+public class UserForm {
 
 	private String username;
 	private String password;

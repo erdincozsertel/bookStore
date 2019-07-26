@@ -6,11 +6,11 @@ import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.erdincozsertel.bookstore.Gender;
 import com.erdincozsertel.bookstore.dao.UserCustomRepository;
 import com.erdincozsertel.bookstore.dao.UserRepository;
 import com.erdincozsertel.bookstore.domain.User;
-import com.erdincozsertel.bookstore.domain.User.Gender;
-import com.erdincozsertel.bookstore.domain.UserLogin;
+import com.erdincozsertel.bookstore.form.UserForm;
 import com.erdincozsertel.bookstore.util.EncodingPasswordUtil;
 
 @Service
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserLogin userLogin(UserLogin user) {
+	public UserForm userLogin(UserForm user) {
 		String username = user.getUsername();
 		String password = user.getPassword();
 		User dbUser = userRepo.findUserByUsername(username);

@@ -1,7 +1,7 @@
 package com.erdincozsertel.bookstore.service;
 
 import com.erdincozsertel.bookstore.domain.User;
-import com.erdincozsertel.bookstore.domain.UserLogin;
+import com.erdincozsertel.bookstore.form.UserForm;
 
 public interface UserService {
 
@@ -11,6 +11,6 @@ public interface UserService {
 
 	User userRegister(User user);
 
-	UserLogin userLogin(UserLogin user);
+	UserForm userLogin(UserForm user);
 
 }

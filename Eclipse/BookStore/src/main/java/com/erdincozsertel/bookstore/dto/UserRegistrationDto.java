@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-import com.erdincozsertel.bookstore.domain.User.Gender;
+import com.erdincozsertel.bookstore.Gender;
 
 public class UserRegistrationDto {
 

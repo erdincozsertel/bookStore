@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.erdincozsertel.bookstore.domain.User;
-import com.erdincozsertel.bookstore.domain.UserLogin;
+import com.erdincozsertel.bookstore.form.UserForm;
 
 @Controller
 public class IndexContoller {
@@ -32,9 +32,9 @@ public class IndexContoller {
 		return "register";
 	}
 
-	@GetMapping("/login")
+	@GetMapping("/userlogin")
 	public String login(Model model) {
-		model.addAttribute("userLogin", new UserLogin());
+		model.addAttribute("userLogin", new UserForm());
 		model.addAttribute("user", new User());
 		return "login";
 	}

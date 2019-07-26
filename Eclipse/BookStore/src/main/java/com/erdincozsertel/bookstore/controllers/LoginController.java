@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.erdincozsertel.bookstore.domain.User;
-import com.erdincozsertel.bookstore.domain.UserLogin;
+import com.erdincozsertel.bookstore.form.UserForm;
 import com.erdincozsertel.bookstore.service.UserService;
 
 @Controller
@@ -20,7 +20,7 @@ public class LoginController {
 	private UserService userService;
 
 	@PostMapping("/login")
-	public String loginSubmit(@Valid @ModelAttribute("userLogin") UserLogin userLogin, BindingResult result,
+	public String loginSubmit(@Valid @ModelAttribute("userLogin") UserForm userLogin, BindingResult result,
 			ModelMap model) {
 		if (result.hasErrors()) {
 			return "error";
@@ -28,7 +28,7 @@ public class LoginController {
 		userLogin = userService.userLogin(userLogin);
 
 		if (userLogin == null) {
-			model.addAttribute("userLogin", new UserLogin());
+			model.addAttribute("userLogin", new UserForm());
 			model.addAttribute("user", new User());
 			return "login";
 		} else {

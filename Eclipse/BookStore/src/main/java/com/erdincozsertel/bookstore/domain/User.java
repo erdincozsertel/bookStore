@@ -4,10 +4,14 @@ import java.sql.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.erdincozsertel.bookstore.Gender;
 
 @Entity
 @Table(name = "user")
@@ -26,10 +30,7 @@ public class User {
 
 	private Integer accountType;
 
-	public enum Gender {
-		MALE, FEMALE
-	};
-
+	@Enumerated(EnumType.STRING)
 	private Gender gender;
 
 	@Basic

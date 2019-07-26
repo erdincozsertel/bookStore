@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.erdincozsertel.bookstore.domain.User;
-import com.erdincozsertel.bookstore.domain.UserLogin;
 import com.erdincozsertel.bookstore.dto.UserRegistrationDto;
+import com.erdincozsertel.bookstore.form.UserForm;
 import com.erdincozsertel.bookstore.service.UserService;
 
 @Controller
@@ -36,7 +36,7 @@ public class RegisterController {
 		}		
 		user = userService.userRegister(user);
 		if (user == null) {
-			model.addAttribute("userLogin", new UserLogin());
+			model.addAttribute("userLogin", new UserForm());
 			model.addAttribute("user", new User());
 			return "login";
 		} else {
