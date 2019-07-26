@@ -1,61 +1,45 @@
-package com.erdincozsertel.bookstore.domain;
+package com.erdincozsertel.bookstore.dto;
 
 import java.sql.Date;
 
 import javax.persistence.Basic;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "user")
-public class User {
+import com.erdincozsertel.bookstore.domain.User.Gender;
+
+public class UserRegistrationDto {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	@NotEmpty
 	private String name;
+	@NotEmpty
 	private String surname;
 
+	@NotEmpty
 	private String username;
+
+	@NotEmpty
 	private String password;
 	private byte[] salt;
 
+	@Email
+	@NotEmpty
 	private String email;
 
+	@NotEmpty
 	private Integer accountType;
-
-	public enum Gender {
-		MALE, FEMALE
-	};
 
 	private Gender gender;
 
 	@Basic
+	@NotEmpty
 	private Date birthDate;
-
-	public User() {
-	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-
-	public User(Integer id, String name, String surname, String username, String password, byte[] salt, String email,
-			Integer accountType, Gender gender, Date birthDate) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
-		this.username = username;
-		this.password = password;
-		this.salt = salt;
-		this.email = email;
-		this.accountType = accountType;
-		this.gender = gender;
-		this.birthDate = birthDate;
-	}
 
 	public String getName() {
 		return name;
@@ -93,12 +77,12 @@ public class User {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	public Gender getGender() {
 		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	public Date getBirthDate() {
@@ -133,4 +117,7 @@ public class User {
 		this.salt = salt;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
 }
