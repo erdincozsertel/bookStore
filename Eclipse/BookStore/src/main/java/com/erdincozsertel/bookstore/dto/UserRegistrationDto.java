@@ -32,13 +32,11 @@ public class UserRegistrationDto {
 	@NotEmpty
 	private String email;
 
-	@NotEmpty
 	private Integer accountType;
 
 	private Gender gender;
 
 	@Basic
-	@NotEmpty
 	private Date birthDate;
 
 	public String getName() {

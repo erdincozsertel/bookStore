@@ -44,7 +44,7 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-          	<a class="nav-link" href="/login">Log in</a>
+          	<a class="nav-link" href="/userlogin">Log in</a>
           </li>
         </ul>
       </div>

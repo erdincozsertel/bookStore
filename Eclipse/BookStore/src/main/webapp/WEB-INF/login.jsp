@@ -43,7 +43,7 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item active">
-          	<a class="nav-link" href="/login">Log in
+          	<a class="nav-link" href="/userlogin">Log in
           	  <span class="sr-only">(current)</span>
           	</a>
           </li>
