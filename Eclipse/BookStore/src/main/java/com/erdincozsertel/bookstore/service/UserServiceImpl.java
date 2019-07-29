@@ -56,15 +56,13 @@ public class UserServiceImpl implements UserService {
 		Date birthDate = user.getBirthDate();
 
 		if (name != null || surname != null || username != null || password != null || email != null
-				|| accountType != null || gender != null || birthDate != null) {
-			return null;
-		} else {
+				|| accountType != null || gender != null || birthDate.toString() != null) {
 			SecureRandom random = new SecureRandom();
 			byte[] salt = new byte[16];
 			user.setSalt(salt);
 			random.nextBytes(salt);
 			password = EncodingPasswordUtil.hashPassword(password, salt);
-			if (user.getPassword() == password || user.getSalt() == salt) {
+			if (user.getPassword() == password) {
 				return null;
 			} else {
 				user.setPassword(password);
@@ -72,6 +70,8 @@ public class UserServiceImpl implements UserService {
 				user = saveUser(user);
 				return user;
 			}
+		} else {
+			return null;
 		}
 	}
 
@@ -85,16 +85,19 @@ public class UserServiceImpl implements UserService {
 		} else {
 			byte[] salt = dbUser.getSalt();
 			password = EncodingPasswordUtil.hashPassword(password, salt);
-			if (user.getPassword() == password) {
-				return null;
-			} else {
+
+			byte[] dbHash = dbUser.getPassword().getBytes();
+			byte[] inHash = password.getBytes();
+			Integer diff = dbHash.length ^ inHash.length;
+			for (int i = 0; i < dbHash.length && i < inHash.length; i++) {
+				diff |= dbHash[i] ^ inHash[i];
+			}
+
+			if (diff == 0) {
 				user.setPassword(password);
-				if (user.getPassword() == dbUser.getPassword()) {
-					// TODO:Session Start
-					return user;
-				} else {
-					return null;
-				}
+				return user;
+			} else {
+				return null;
 			}
 		}
 	}

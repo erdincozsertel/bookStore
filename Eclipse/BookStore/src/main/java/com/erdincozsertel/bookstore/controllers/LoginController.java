@@ -19,7 +19,7 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 
-	@PostMapping("/login")
+	@PostMapping("/loginCntr")
 	public String loginSubmit(@Valid @ModelAttribute("userLogin") UserForm userLogin, BindingResult result,
 			ModelMap model) {
 		if (result.hasErrors()) {
@@ -32,7 +32,8 @@ public class LoginController {
 			model.addAttribute("user", new User());
 			return "login";
 		} else {
-			return "result";
+			// TODO:Session Start
+			return "redirect:";
 		}
 	}
 

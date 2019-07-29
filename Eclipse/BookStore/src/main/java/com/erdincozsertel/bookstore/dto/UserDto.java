@@ -3,6 +3,8 @@ package com.erdincozsertel.bookstore.dto;
 import java.sql.Date;
 
 import javax.persistence.Basic;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,8 +12,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import com.erdincozsertel.bookstore.Gender;
+import com.erdincozsertel.bookstore.domain.User;
 
-public class UserRegistrationDto {
+public class UserDto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,11 +38,24 @@ public class UserRegistrationDto {
 	@NotEmpty
 	private Integer accountType;
 
+	@Enumerated(EnumType.STRING)
 	private Gender gender;
 
 	@Basic
-	@NotEmpty
 	private Date birthDate;
+
+	public UserDto(User user) {
+		this.id = user.getId();
+		this.name = user.getName();
+		this.surname = user.getSurname();
+		this.username = user.getUsername();
+		this.password = user.getPassword();
+		this.salt = user.getSalt();
+		this.email = user.getEmail();
+		this.accountType = user.getAccountType();
+		this.gender = user.getGender();
+		this.birthDate = user.getBirthDate();
+	}
 
 	public String getName() {
 		return name;

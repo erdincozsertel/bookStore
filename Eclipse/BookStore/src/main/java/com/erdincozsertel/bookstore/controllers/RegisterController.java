@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.erdincozsertel.bookstore.domain.User;
-import com.erdincozsertel.bookstore.dto.UserRegistrationDto;
 import com.erdincozsertel.bookstore.form.UserForm;
 import com.erdincozsertel.bookstore.service.UserService;
 
@@ -20,10 +19,6 @@ public class RegisterController {
 	@Autowired
 	private UserService userService;
 
-	@ModelAttribute("user")
-	public UserRegistrationDto userRegistrationDto() {
-		return new UserRegistrationDto();
-	}
 
 	@PostMapping("/register")
 	public String registerSubmit(@Valid @ModelAttribute("user") User user, BindingResult result, ModelMap model) {
@@ -40,7 +35,7 @@ public class RegisterController {
 			model.addAttribute("user", new User());
 			return "login";
 		} else {
-			return "result";
+			return "redirect:";
 		}		
 	}
 }

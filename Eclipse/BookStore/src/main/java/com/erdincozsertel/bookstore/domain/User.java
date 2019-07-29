@@ -3,6 +3,7 @@ package com.erdincozsertel.bookstore.domain;
 import java.sql.Date;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.erdincozsertel.bookstore.Gender;
+import com.erdincozsertel.bookstore.dto.UserDto;
 
 @Entity
 @Table(name = "user")
@@ -31,6 +33,7 @@ public class User {
 	private Integer accountType;
 
 	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition="varchar(6)")
 	private Gender gender;
 
 	@Basic
@@ -39,13 +42,25 @@ public class User {
 	public User() {
 	}
 
+	public User(UserDto userDto) {
+		this.id = userDto.getId();
+		this.name = userDto.getName();
+		this.surname = userDto.getSurname();
+		this.username = userDto.getUsername();
+		this.password = userDto.getPassword();
+		this.salt = userDto.getSalt();
+		this.email = userDto.getEmail();
+		this.accountType = userDto.getAccountType();
+		this.gender = userDto.getGender();
+		this.birthDate = userDto.getBirthDate();
+	}
+
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 
 	public User(Integer id, String name, String surname, String username, String password, byte[] salt, String email,
 			Integer accountType, Gender gender, Date birthDate) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.surname = surname;

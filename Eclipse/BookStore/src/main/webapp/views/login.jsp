@@ -43,7 +43,7 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item active">
-          	<a class="nav-link" href="/login">Log in
+          	<a class="nav-link" href="/userlogin">Log in
           	  <span class="sr-only">(current)</span>
           	</a>
           </li>
@@ -66,7 +66,7 @@
   			
   				<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
   					
-					<form:form id="loginform" class="form-horizontal" action="/login" modelAttribute="userLogin" method="post">
+					<form:form id="loginform" class="form-horizontal" action="/loginCntr" modelAttribute="userLogin" method="post">
   						
   						<div style="margin-bottom: 25px" class="input-group">
   							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
