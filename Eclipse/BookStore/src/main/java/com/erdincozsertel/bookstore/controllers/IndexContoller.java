@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.erdincozsertel.bookstore.dao.MessageRepository;
 import com.erdincozsertel.bookstore.domain.User;
 import com.erdincozsertel.bookstore.form.PassTest;
 import com.erdincozsertel.bookstore.form.UserForm;
@@ -23,6 +24,9 @@ import com.erdincozsertel.bookstore.util.EncodingPasswordUtil;
 @Controller
 public class IndexContoller {
 	private String appMode;
+	
+	@Autowired
+    private MessageRepository messageRepository;
 
 	@Autowired
 	public IndexContoller(Environment environment) {
@@ -31,6 +35,7 @@ public class IndexContoller {
 
 	@RequestMapping("/")
 	public String index(Model model) {
+		model.addAttribute("msgs", messageRepository.findAll());
 		return "index";
 	}
 

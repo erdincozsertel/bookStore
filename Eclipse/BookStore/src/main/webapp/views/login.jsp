@@ -77,6 +77,9 @@
   							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 							<form:input path="password" id="login-password" type="password" class="form-control" name="password" placeholder="password"/>
   						</div>
+  						<div style="margin-bottom: 25px" class="input-group">
+							<form:input type="checkbox" name="remember-me"/>
+  						</div>
   						<div style="margin-top:10px" class="form-group">
   							<!-- Button -->
 

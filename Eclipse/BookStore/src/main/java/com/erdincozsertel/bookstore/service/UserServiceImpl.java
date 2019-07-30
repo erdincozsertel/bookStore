@@ -24,7 +24,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByEmail(String email) {
-		return userRepo.findUserBydEmail(email);
+		return userRepo.findUserByEmail(email);
+	}
+
+	@Override
+	public User getUserByUsername(String username) {
+		return userRepo.findUserByUsername(username);
 	}
 
 	@Override
@@ -101,4 +106,5 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 	}
+
 }

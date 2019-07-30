@@ -4,7 +4,7 @@ import com.erdincozsertel.bookstore.domain.User;
 
 public interface UserCustomRepository {
 
-	User findUserBydEmail(String email);
+	User findUserByEmail(String email);
 	
 	User findUserByUsername(String username);
 }

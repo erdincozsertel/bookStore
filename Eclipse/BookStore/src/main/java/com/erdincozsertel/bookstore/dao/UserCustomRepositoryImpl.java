@@ -1,11 +1,15 @@
 package com.erdincozsertel.bookstore.dao;
 
+import java.util.Collection;
+
 import javax.persistence.EntityManager;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Repository;
 
 import com.erdincozsertel.bookstore.domain.User;
@@ -18,7 +22,7 @@ public class UserCustomRepositoryImpl implements UserCustomRepository {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public User findUserBydEmail(String email) {
+	public User findUserByEmail(String email) {
 		Criteria criteria = manager.unwrap(Session.class).createCriteria(User.class);
 		criteria.add(Restrictions.eqOrIsNull("email", email));
 		return (User) criteria.uniqueResult();
@@ -30,5 +34,11 @@ public class UserCustomRepositoryImpl implements UserCustomRepository {
 		criteria.add(Restrictions.eqOrIsNull("username", username));
 		return (User) criteria.uniqueResult();
 	}
+	
+	private static Collection<? extends GrantedAuthority> getAuthorities(User user) {
+        String[] userRoles = user.getRoles().stream().map((role) -> role.getName()).toArray(String[]::new);
+        Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(userRoles);
+        return authorities;
+    }
 
 }
