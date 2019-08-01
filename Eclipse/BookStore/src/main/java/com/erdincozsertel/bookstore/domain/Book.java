@@ -5,13 +5,17 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+@Entity
+@Table(name = "books")
 public class Book {
 
 	@Id
@@ -33,6 +37,9 @@ public class Book {
 	private Category bookCategory;
 	@Basic
 	private LocalDateTime insertDate;
+
+	public Book() {
+	}
 
 	public Book(Book book) {
 		this.bookId = book.getBookId();

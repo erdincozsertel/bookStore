@@ -32,9 +32,12 @@ public class Writer {
 	private Gender gender;
 	@Basic
 	private Date birthDate;
-	
-	@OneToMany(mappedBy = "writer")
+
+	@OneToMany(mappedBy = "bookWriter")
 	private List<Book> books;
+
+	public Writer() {
+	}
 
 	public Writer(Integer writerId, String writerName, Gender gender, Date birthDate) {
 		this.writerId = writerId;
@@ -52,7 +55,7 @@ public class Writer {
 	public Writer(String writerName) {
 		this.writerName = writerName;
 	}
-	
+
 //	public Writer(Integer writerId) {
 //		this.writerId = writerId;
 //		WriterDao writerDao = new WriterDaoImpl();
@@ -89,5 +92,17 @@ public class Writer {
 	public Integer getWriterId() {
 		return writerId;
 	}
-	
+
+	public List<Book> getBooks() {
+		return books;
+	}
+
+	public void setWriterId(Integer writerId) {
+		this.writerId = writerId;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
+	}
+
 }

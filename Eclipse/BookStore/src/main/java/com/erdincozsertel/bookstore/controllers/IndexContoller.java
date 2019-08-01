@@ -48,6 +48,7 @@ public class IndexContoller {
 
 	@GetMapping("/userlogin")
 	public String login(Model model) {
+//		model.addAttribute("remember-me", new Boolean(false));
 		model.addAttribute("userLogin", new UserForm());
 		model.addAttribute("user", new User());
 		return "login";

@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.headers().frameOptions().sameOrigin().and().authorizeRequests()
-				.antMatchers("/resources/**", "/webjars/**", "/assets/**").permitAll().antMatchers("/").permitAll()
+				.antMatchers("/resources/**", "/webjars/**", "/assets/**").permitAll().antMatchers("/", "/passWordTest1", "/passWordTest2").permitAll()
 				.antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated().and()
 				.formLogin().loginPage("/userlogin").defaultSuccessUrl("/index").failureUrl("/userlogin?error").permitAll().and()
 				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/userlogin?logout")

@@ -18,17 +18,20 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer categoryId;
-	
+
 	@Column(nullable = false, unique = true)
 	@NotEmpty()
 	private String categoryName;
-	
-	@OneToMany(mappedBy = "category")
+
+	@OneToMany(mappedBy = "bookCategory")
 	private List<Book> books;
 
 	public Category(Integer categoryId, String categoryName) {
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;
+	}
+
+	public Category() {
 	}
 
 	public Integer getCategoryId() {
@@ -41,6 +44,18 @@ public class Category {
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
+	}
+
+	public List<Book> getBooks() {
+		return books;
+	}
+
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
 	}
 
 }
