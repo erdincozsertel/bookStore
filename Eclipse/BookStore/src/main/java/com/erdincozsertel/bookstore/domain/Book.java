@@ -27,9 +27,8 @@ public class Book {
 	private String bookName;
 	@ManyToOne
 	private Writer bookWriter;
-	@Column(nullable = false)
-	@NotEmpty()
-	private String bookPublisher;
+	@ManyToOne
+	private Publisher bookPublisher;
 	@Column(nullable = false)
 	@NotEmpty()
 	private BigDecimal bookPrice;
@@ -51,7 +50,7 @@ public class Book {
 		this.insertDate = book.getInsertDate();
 	}
 
-	public Book(Integer bookId, String bookName, Writer bookWriter, String bookPublisher, BigDecimal bookPrice,
+	public Book(Integer bookId, String bookName, Writer bookWriter, Publisher bookPublisher, BigDecimal bookPrice,
 			Category bookCategory, LocalDateTime insertDate) {
 		this.bookId = bookId;
 		this.bookName = bookName;
@@ -74,7 +73,7 @@ public class Book {
 		return bookWriter;
 	}
 
-	public String getBookPublisher() {
+	public Publisher getBookPublisher() {
 		return bookPublisher;
 	}
 
@@ -102,7 +101,7 @@ public class Book {
 		this.bookWriter = bookWriter;
 	}
 
-	public void setBookPublisher(String bookPublisher) {
+	public void setBookPublisher(Publisher bookPublisher) {
 		this.bookPublisher = bookPublisher;
 	}
 

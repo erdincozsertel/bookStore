@@ -42,6 +42,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
+          <li class="nav-item">
+          	<a class="nav-link" href="/admin/addBook">Add Book</a>
+          </li>
           <li class="nav-item active">
           	<a class="nav-link" href="/userlogin">Log in
           	  <span class="sr-only">(current)</span>

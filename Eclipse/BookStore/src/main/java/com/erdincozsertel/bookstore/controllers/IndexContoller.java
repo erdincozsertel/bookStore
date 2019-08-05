@@ -24,13 +24,23 @@ import com.erdincozsertel.bookstore.util.EncodingPasswordUtil;
 @Controller
 public class IndexContoller {
 	private String appMode;
-	
+
 	@Autowired
-    private MessageRepository messageRepository;
+	private MessageRepository messageRepository;
 
 	@Autowired
 	public IndexContoller(Environment environment) {
 		appMode = environment.getProperty("app-mode");
+	}
+
+	@ModelAttribute("userLogin")
+	protected UserForm userLogin() {
+		return new UserForm();
+	}
+
+	@ModelAttribute("user")
+	private User user() {
+		return new User();
 	}
 
 	@RequestMapping("/")
@@ -41,29 +51,35 @@ public class IndexContoller {
 
 	@RequestMapping("/userregister")
 	public String register(Model model) {
-    	model.addAttribute("userLogin", new UserForm());
-		model.addAttribute("user", new User());
+//		model.addAttribute("userLogin", new UserForm());
+//		model.addAttribute("user", new User());
 		return "login";
 	}
 
 	@GetMapping("/userlogin")
 	public String login(Model model) {
 //		model.addAttribute("remember-me", new Boolean(false));
-		model.addAttribute("userLogin", new UserForm());
-		model.addAttribute("user", new User());
+//		model.addAttribute("userLogin", new UserForm());
+//		model.addAttribute("user", new User());
 		return "login";
 	}
 	
+	@RequestMapping("/admin/addBook")
+	public String addBook(Model model) {
+//		model.addAttribute("userLogin", new UserForm());
+//		model.addAttribute("user", new User());
+		return "bookRegister";
+	}
+
 	@GetMapping("/passWordTest1")
 	public String passTest(Model model) {
 		model.addAttribute("passT", new PassTest());
 		return "pTest";
 	}
-	
+
 	@PostMapping("/passWordTest2")
-	public String passTestMap(@Valid @ModelAttribute("passT") PassTest passT, BindingResult result,
-			ModelMap model) {
-		String passOriginal= passT.getPassword();
+	public String passTestMap(@Valid @ModelAttribute("passT") PassTest passT, BindingResult result, ModelMap model) {
+		String passOriginal = passT.getPassword();
 		SecureRandom random = new SecureRandom();
 		byte[] salt = new byte[16];
 		random.nextBytes(salt);
@@ -71,12 +87,12 @@ public class IndexContoller {
 		String passHash1 = EncodingPasswordUtil.hashPassword(passOriginal, salt);
 		String passHash2 = EncodingPasswordUtil.hashPassword(passOriginal, salt);
 		String passHash3 = EncodingPasswordUtil.hashPassword(passOriginal, salt);
-		
-		System.out.println("passHash1 = "+passHash1+" passHash2 = "+passHash2+" passHash3 = "+passHash3+" ");
+
+		System.out
+				.println("passHash1 = " + passHash1 + " passHash2 = " + passHash2 + " passHash3 = " + passHash3 + " ");
 
 		return "pTest";
-		
+
 	}
-	
 
 }
