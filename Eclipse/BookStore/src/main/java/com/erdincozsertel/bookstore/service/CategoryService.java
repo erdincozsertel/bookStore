@@ -1,9 +1,6 @@
 package com.erdincozsertel.bookstore.service;
 
 import java.util.List;
-
-import javax.servlet.ServletException;
-
 import com.erdincozsertel.bookstore.domain.Category;
 
 public interface CategoryService {
@@ -14,7 +11,7 @@ public interface CategoryService {
 
 	void delete(Integer categoryId);
 
-	List<Category> getCategoryList() throws ServletException;
+	List<Category> getCategoryList();
 
 	String getCategoryName(Integer categoryId);
 

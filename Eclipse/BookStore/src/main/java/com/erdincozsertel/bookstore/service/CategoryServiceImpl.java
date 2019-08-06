@@ -2,8 +2,6 @@ package com.erdincozsertel.bookstore.service;
 
 import java.util.List;
 
-import javax.servlet.ServletException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<Category> getCategoryList() throws ServletException {
+	public List<Category> getCategoryList() {
 		return categoryDao.findAll();
 	}
 

@@ -16,6 +16,12 @@
 
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
+  
+    <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -43,12 +49,12 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item active">
-          	<a class="nav-link" href="/admin/addBook">Add Book
+          	<a class="nav-link" href="/addBook">Add Book
           	  <span class="sr-only">(current)</span>
           	</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/booklogin">Log in</a>
+            <a class="nav-link" href="/userlogin">Log in</a>
           </li>
         </ul>
       </div>
@@ -81,7 +87,13 @@
                                 		<form:select path= "bookWriter" id="register-bookWriter" class="form-control" name="bookWriter" required="required">
                                 			<form:option value = "NONE" label = "Select" itemValue="writerId" itemLabel="writerName"/>
                                 			<form:options items="${writerList}" /> 
-                                		</form:select>     	
+                                		</form:select>   
+                                		<!-- Button for Writer -->
+                                		<div class="form-group2">
+  											<div class="col-md-offset-3 col-md-9">
+                                        		<a id="btn-editWriter" class="btn btn-info" href="/showWriter">Edit Writer</a>
+                                    		</div>		
+                                    	</div>								
                                 	</div>
                                 </div>
                                 <div class="form-group">
@@ -131,10 +143,6 @@
     </div>
     <!-- /.container -->
   </footer>
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>

@@ -2,8 +2,6 @@ package com.erdincozsertel.bookstore.service;
 
 import java.util.List;
 
-import javax.servlet.ServletException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +35,7 @@ public class WriterServiceImpl implements WriterService {
 	}
 
 	@Override
-	public List<Writer> getWriterList() throws ServletException {
+	public List<Writer> getWriterList() {
 		return writerDao.findAll();
 	}
 

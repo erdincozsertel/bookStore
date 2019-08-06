@@ -15,6 +15,9 @@
 
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
+  
+    <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
 
 </head>
 
@@ -44,7 +47,7 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-          	<a class="nav-link" href="/admin/addBook">Add Book</a>
+          	<a class="nav-link" href="/addBook">Add Book</a>
           </li>
           <li class="nav-item">
           	<a class="nav-link" href="/userlogin">Log in</a>
@@ -217,10 +220,6 @@
     </div>
     <!-- /.container -->
   </footer>
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>

@@ -1,8 +1,7 @@
 package com.erdincozsertel.bookstore.service;
 
-import java.time.LocalDateTime;
 import java.util.List;
-
+import java.time.LocalDateTime;
 import com.erdincozsertel.bookstore.domain.Book;
 
 public interface BookService {
