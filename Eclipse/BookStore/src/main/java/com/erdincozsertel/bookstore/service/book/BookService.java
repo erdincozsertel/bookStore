@@ -6,13 +6,15 @@ import com.erdincozsertel.bookstore.domain.Book;
 
 public interface BookService {
 
-	void save(Book book);
+	Book save(Book book);
 
 	void update(Book book);
 
 	void delete(Integer bookId);
 
 	Book getBook(Integer bookId);
+	
+	Book getBookByName(String bookName);
 
 	List<Book> getBookList();
 

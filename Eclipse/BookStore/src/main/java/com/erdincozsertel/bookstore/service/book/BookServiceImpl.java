@@ -20,8 +20,8 @@ public class BookServiceImpl implements BookService {
 	private BookCustomRepository bookRepo;
 
 	@Override
-	public void save(Book book) {
-		bookDao.save(book);
+	public Book save(Book book) {
+		return bookDao.save(book);
 	}
 
 	@Override
@@ -48,6 +48,12 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public LocalDateTime getInsertDate(Integer bookId) {
 		return getBook(bookId).getInsertDate();
+	}
+
+	@Override
+	public Book getBookByName(String bookName) {
+//		return categoryRepo.findCategoryByName(categoryName);
+		return bookRepo.findBookByName(bookName);
 	}
 
 }

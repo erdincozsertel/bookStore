@@ -93,6 +93,23 @@ public class BookContoller {
 //		model.addAttribute("user", new User());
 		return "bookRegister";
 	}
+	
+	@RequestMapping("/bookRegister")
+	public String bookRegister(@Valid @ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
+	Book existing = bookService.getBookByName(book.getBookName());
+	if (existing != null) {
+		result.rejectValue("bookName", null, "There is already a book registered with that name");
+	}
+	if (result.hasErrors()) {
+		return "error";
+	}		
+	book = bookService.save(book);
+	if (book == null) {
+		return "bookRegister";
+	} else {
+		return "redirect:";
+	}		
+}
 
 	@RequestMapping("/showWriter")
 	public String showWriter() {

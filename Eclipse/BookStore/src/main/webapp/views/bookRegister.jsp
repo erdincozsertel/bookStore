@@ -132,6 +132,12 @@
                                     	</div>	   	
                                 	</div>
                                 </div>
+<!--                                 <div class="form-group"> -->
+<!--                                    <label for="bookImage" class="col-md-3 control-label">Book Image</label> -->
+<!--                                    <div class="col-md-9"> -->
+<%--                                        <form:input path="bookImage" id="register-bookImage" type="file" class="form-control custom-file-input" name="bookFilename"/> --%>
+<!--                                    </div> -->
+<!--                                </div>                                 -->
                                 
 
                                 <div class="form-group">
