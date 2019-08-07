@@ -1,4 +1,4 @@
-package com.erdincozsertel.bookstore.service;
+package com.erdincozsertel.bookstore.service.category;
 
 import java.util.List;
 import com.erdincozsertel.bookstore.domain.Category;

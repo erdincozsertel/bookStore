@@ -1,4 +1,4 @@
-package com.erdincozsertel.bookstore.service;
+package com.erdincozsertel.bookstore.service.book;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.erdincozsertel.bookstore.dao.BookCustomRepository;
-import com.erdincozsertel.bookstore.dao.BookRepository;
+import com.erdincozsertel.bookstore.dao.book.BookCustomRepository;
+import com.erdincozsertel.bookstore.dao.book.BookRepository;
 import com.erdincozsertel.bookstore.domain.Book;
 
 @Service

@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.erdincozsertel.bookstore.dao.UserCustomRepository;
-import com.erdincozsertel.bookstore.dao.UserRepository;
+import com.erdincozsertel.bookstore.dao.user.UserCustomRepository;
+import com.erdincozsertel.bookstore.dao.user.UserRepository;
 import com.erdincozsertel.bookstore.domain.User;
 
 public class CustomUserDetailsService implements UserDetailsService {

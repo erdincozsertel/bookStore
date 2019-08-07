@@ -1,4 +1,4 @@
-package com.erdincozsertel.bookstore.service;
+package com.erdincozsertel.bookstore.service.publisher;
 
 import java.util.List;
 

@@ -61,7 +61,7 @@
 
   <!-- Page Content -->
   
-  <div class="container-fluid">
+  <div class="container">
   
   	<div id="addBookBox" style="margin-top:50px;" >
   		<div class="panel panel-info">
@@ -69,7 +69,7 @@
   				<div class="panel-title">Writer List</div>
  			</div>  
   			<div class="panel-body" style="padding-top:30px" >
-  				<table border="1" cellpadding="5">
+  				<table border="1" cellpadding="5" class="table table-bordered table-lg">
 			<caption>List of Writers</caption>
 			<tr>
 				<th>Writer Name</th>
@@ -89,15 +89,21 @@
 			</tr>
 				</c:forEach>
 			<tr>
-				<form action = others>
-					<td><input type="text" name="writerName" required/></td>
+				<form:form id="adwriterFform" class="form-horizontal" action="/addWriter" modelAttribute="writer" method="post">
 					<td>
-						<input type="radio" name="gender" value="MALE" checked> Male
-  						<input type="radio" name="gender" value="FEMALE"> Female
+						<form:input path="writerName" id="writer-name" type="text" class="form-control" name="writerName" placeholder="Name of the Writer" required="required"/>
 					</td>
-					<td><input type="date" name="birthDate" required></td>
-					<td colspan="2"><button type="submit" name="addWriter" value="addWriter" formmethod="post" >Add Writer</button></td>
-				</form>
+					<td>
+						<form:radiobutton path="gender" id="register-gender" name="gender" value="MALE" checked="checked"/>
+						<form:radiobutton path="gender" id="register-gender" name="gender" value="FEMALE"/> Female
+					</td>
+					<td>
+						<form:input path="birthDate" type="date" id ="register-birthdate" class="form-control" name="birthDate" required="required"/>
+					</td>
+					<td colspan="2">
+						<input id="btn-addWriter" type="submit" value="Add Writer" class="btn btn-success"/>
+					</td>
+				</form:form>
 			</tr>
 		</table>
   			</div>

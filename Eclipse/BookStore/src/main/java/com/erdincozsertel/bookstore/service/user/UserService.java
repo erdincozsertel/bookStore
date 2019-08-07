@@ -1,4 +1,4 @@
-package com.erdincozsertel.bookstore.service;
+package com.erdincozsertel.bookstore.service.user;
 
 import com.erdincozsertel.bookstore.domain.User;
 import com.erdincozsertel.bookstore.form.UserForm;

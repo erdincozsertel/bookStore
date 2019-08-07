@@ -1,12 +1,12 @@
-package com.erdincozsertel.bookstore.service;
+package com.erdincozsertel.bookstore.service.category;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.erdincozsertel.bookstore.dao.CategoryCustomRepository;
-import com.erdincozsertel.bookstore.dao.CategoryRepository;
+import com.erdincozsertel.bookstore.dao.category.CategoryCustomRepository;
+import com.erdincozsertel.bookstore.dao.category.CategoryRepository;
 import com.erdincozsertel.bookstore.domain.Category;
 
 @Service

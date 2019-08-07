@@ -1,12 +1,12 @@
-package com.erdincozsertel.bookstore.service;
+package com.erdincozsertel.bookstore.service.writer;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.erdincozsertel.bookstore.dao.WriterCustomRepository;
-import com.erdincozsertel.bookstore.dao.WriterRepository;
+import com.erdincozsertel.bookstore.dao.writer.WriterCustomRepository;
+import com.erdincozsertel.bookstore.dao.writer.WriterRepository;
 import com.erdincozsertel.bookstore.domain.Writer;
 
 @Service

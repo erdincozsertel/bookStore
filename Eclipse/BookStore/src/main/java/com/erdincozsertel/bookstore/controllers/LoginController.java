@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.erdincozsertel.bookstore.domain.User;
 import com.erdincozsertel.bookstore.form.UserForm;
-import com.erdincozsertel.bookstore.service.UserService;
+import com.erdincozsertel.bookstore.service.user.UserService;
 
 @Controller
 public class LoginController {

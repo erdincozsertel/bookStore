@@ -1,4 +1,4 @@
-package com.erdincozsertel.bookstore.service;
+package com.erdincozsertel.bookstore.service.book;
 
 import java.util.List;
 import java.time.LocalDateTime;

@@ -24,11 +24,11 @@ import com.erdincozsertel.bookstore.domain.User;
 import com.erdincozsertel.bookstore.domain.Writer;
 import com.erdincozsertel.bookstore.form.PassTest;
 import com.erdincozsertel.bookstore.form.UserForm;
-import com.erdincozsertel.bookstore.service.BookService;
-import com.erdincozsertel.bookstore.service.CategoryService;
-import com.erdincozsertel.bookstore.service.PublisherService;
-import com.erdincozsertel.bookstore.service.UserService;
-import com.erdincozsertel.bookstore.service.WriterService;
+import com.erdincozsertel.bookstore.service.book.BookService;
+import com.erdincozsertel.bookstore.service.category.CategoryService;
+import com.erdincozsertel.bookstore.service.publisher.PublisherService;
+import com.erdincozsertel.bookstore.service.user.UserService;
+import com.erdincozsertel.bookstore.service.writer.WriterService;
 import com.erdincozsertel.bookstore.util.EncodingPasswordUtil;
 
 @Controller

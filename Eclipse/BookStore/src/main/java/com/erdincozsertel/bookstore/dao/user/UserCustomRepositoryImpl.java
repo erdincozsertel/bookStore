@@ -1,4 +1,4 @@
-package com.erdincozsertel.bookstore.dao;
+package com.erdincozsertel.bookstore.dao.user;
 
 import java.util.Collection;
 

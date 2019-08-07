@@ -1,4 +1,4 @@
-package com.erdincozsertel.bookstore.service;
+package com.erdincozsertel.bookstore.service.user;
 
 import java.security.SecureRandom;
 import java.sql.Date;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.erdincozsertel.bookstore.Gender;
-import com.erdincozsertel.bookstore.dao.UserCustomRepository;
-import com.erdincozsertel.bookstore.dao.UserRepository;
+import com.erdincozsertel.bookstore.dao.user.UserCustomRepository;
+import com.erdincozsertel.bookstore.dao.user.UserRepository;
 import com.erdincozsertel.bookstore.domain.User;
 import com.erdincozsertel.bookstore.form.UserForm;
 import com.erdincozsertel.bookstore.util.EncodingPasswordUtil;
