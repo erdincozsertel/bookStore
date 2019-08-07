@@ -19,8 +19,8 @@ public class WriterServiceImpl implements WriterService {
 	private WriterCustomRepository writerRepo;
 
 	@Override
-	public void save(Writer writer) {
-		writerDao.save(writer);
+	public Writer save(Writer writer) {
+		return writerDao.save(writer);
 	}
 
 	@Override
@@ -47,6 +47,11 @@ public class WriterServiceImpl implements WriterService {
 	@Override
 	public Writer getWriter(Integer writerId) {
 		return writerDao.getOne(writerId);
+	}
+
+	@Override
+	public Writer getWriterByName(String writerName) {
+		return writerRepo.findWriterByName(writerName);
 	}
 
 }

@@ -19,8 +19,8 @@ public class CategoryServiceImpl implements CategoryService {
 	private CategoryCustomRepository categoryRepo;
 
 	@Override
-	public void save(Category category) {
-		categoryDao.save(category);
+	public Category save(Category category) {
+		return categoryDao.save(category);
 
 	}
 
@@ -49,6 +49,11 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Category getCategory(Integer categoryId) {
 		return categoryDao.getOne(categoryId);
+	}
+
+	@Override
+	public Category getCategoryByName(String categoryName) {
+		return categoryRepo.findCategoryByName(categoryName);
 	}
 
 }

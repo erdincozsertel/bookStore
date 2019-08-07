@@ -19,8 +19,8 @@ public class PublisherServiceImpl implements PublisherService {
 	private PublisherCustomRepository publisherRepo;
 
 	@Override
-	public void save(Publisher publisher) {
-		publisherDao.save(publisher);
+	public Publisher save(Publisher publisher) {
+		return publisherDao.save(publisher);
 
 	}
 
@@ -49,6 +49,11 @@ public class PublisherServiceImpl implements PublisherService {
 	@Override
 	public Publisher getPublisher(Integer publisherId) {
 		return publisherDao.getOne(publisherId);
+	}
+
+	@Override
+	public Publisher getPublisherByName(String publisherName) {
+		return publisherRepo.findPublisherByName(publisherName);
 	}
 
 }

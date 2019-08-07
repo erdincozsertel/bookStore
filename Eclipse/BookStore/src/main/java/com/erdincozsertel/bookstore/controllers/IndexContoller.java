@@ -109,18 +109,6 @@ public class IndexContoller {
 		return "login";
 	}
 
-	@RequestMapping("/addBook")
-	public String addBook(Model model) {
-//		model.addAttribute("userLogin", new UserForm());
-//		model.addAttribute("user", new User());
-		return "bookRegister";
-	}
-	
-	@RequestMapping("/showWriter")
-	public String showWriter() {
-		return "showWriter";
-	}
-
 	@GetMapping("/passWordTest1")
 	public String passTest(Model model) {
 		model.addAttribute("passT", new PassTest());

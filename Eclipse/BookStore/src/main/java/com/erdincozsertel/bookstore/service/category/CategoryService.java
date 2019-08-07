@@ -5,7 +5,7 @@ import com.erdincozsertel.bookstore.domain.Category;
 
 public interface CategoryService {
 
-	void save(Category category);
+	Category save(Category category);
 
 	void update(Category category);
 
@@ -16,5 +16,7 @@ public interface CategoryService {
 	String getCategoryName(Integer categoryId);
 
 	Category getCategory(Integer categoryId);
+	
+	Category getCategoryByName(String categoryName);
 
 }

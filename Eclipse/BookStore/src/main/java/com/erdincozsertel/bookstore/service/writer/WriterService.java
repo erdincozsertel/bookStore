@@ -6,7 +6,7 @@ import com.erdincozsertel.bookstore.domain.Writer;
 
 public interface WriterService {
 
-	void save(Writer writer);
+	Writer save(Writer writer);
 
 	void update(Writer writer);
 
@@ -17,5 +17,7 @@ public interface WriterService {
 	String getWriterName(Integer writerId);
 
 	Writer getWriter(Integer writerId);
+
+	Writer getWriterByName(String writerName);
 
 }

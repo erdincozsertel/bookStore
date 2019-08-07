@@ -63,45 +63,34 @@
   
   <div class="container">
   
-  	<div id="writerBox" style="margin-top:50px;" >
+  	<div id="publisherBox" style="margin-top:50px;" >
   		<div class="panel panel-info">
   			<div class="panel-heading">
-  				<div class="panel-title">Writer List</div>
+  				<div class="panel-title">Publisher List</div>
  			</div>  
   			<div class="panel-body" style="padding-top:30px" >
   				<table border="1" cellpadding="5" class="table table-bordered table-lg">
-			<caption>List of Writers</caption>
+			<caption>List of Publishers</caption>
 			<tr>
-				<th>Writer Name</th>
-				<th>Writer Gender</th>
-				<th>Writer Birth Date</th>
+				<th>Publisher Name</th>
 				<th colspan="2"> Update</th>
 			</tr>
-				<c:forEach items="${writerList}" var="writer">
+				<c:forEach items="${publisherList}" var="publisher">
 			<tr>
-					<td>${writer.writerName}</td>
-					<td>${writer.gender}</td>
-					<td>${writer.birthDate}</td>
-				<form action="/writer">
-					<td><button type="submit" name="editWriter" value=${writer.writerId} formmethod="post">Edit</button></td>
-					<td><button type="submit" name="deleteWriter" value=${writer.writerId} formmethod="post">Delete!</button></td>
+					<td>${publisher.publisherName}</td>
+				<form action="/publisher">
+					<td><button type="submit" name="editPublisher" value=${publisher.publisherId} formmethod="post">Edit</button></td>
+					<td><button type="submit" name="deletePublisher" value=${publisher.publisherId} formmethod="post">Delete!</button></td>
 				</form>
 			</tr>
 				</c:forEach>
 			<tr>
-				<form:form id="addWriterForm" class="form-horizontal" action="/addWriter" modelAttribute="writer" method="post">
+				<form:form id="addPublisherForm" class="form-horizontal" action="/addPublisher" modelAttribute="publisher" method="post">
 					<td>
-						<form:input path="writerName" id="writer-name" type="text" class="form-control" name="writerName" placeholder="Name of the Writer" required="required"/>
-					</td>
-					<td>
-						<form:radiobutton path="gender" id="register-gender" name="gender" value="MALE" checked="checked"/>Male
-						<form:radiobutton path="gender" id="register-gender" name="gender" value="FEMALE"/> Female
-					</td>
-					<td>
-						<form:input path="birthDate" type="date" id ="register-birthdate" class="form-control" name="birthDate" required="required"/>
-					</td>
+						<form:input path="publisherName" id="publisher-name" type="text" class="form-control" name="publisherName" placeholder="Name of the Publisher" required="required"/>
+					</td>			
 					<td colspan="2">
-						<input id="btn-addWriter" type="submit" value="Add Writer" class="btn btn-success"/>
+						<input id="btn-addPublisher" type="submit" value="Add Publisher" class="btn btn-success"/>
 					</td>
 				</form:form>
 			</tr>

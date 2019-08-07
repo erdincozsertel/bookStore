@@ -85,13 +85,13 @@
                                 	<label for="bookWriter" class="col-md-3 control-label">Writer</label>
                                 	<div class="col-md-9">
                                 		<form:select path= "bookWriter" id="register-bookWriter" class="form-control" name="bookWriter" required="required">
-                                			<form:option value = "NONE" label = "Select" itemValue="writerId" itemLabel="writerName"/>
-                                			<form:options items="${writerList}" /> 
+                                			<form:option value = "NONE" label = "Select"/>
+                                			<form:options items="${writerList}" itemValue="writerId" itemLabel="writerName"/> 
                                 		</form:select>   
                                 		<!-- Button for Writer -->
                                 		<div class="form-group2">
   											<div class="col-md-offset-3 col-md-9">
-                                        		<a id="btn-editWriter" class="btn btn-info" href="/showWriter">Edit Writer</a>
+                                        		<a id="btn-editWriter" class="btn btn-info bookButton" href="/showWriter">Add or Edit Writers</a>
                                     		</div>		
                                     	</div>								
                                 	</div>
@@ -100,9 +100,15 @@
                                 	<label for="bookPublisher" class="col-md-3 control-label">Publisher</label>
                                 	<div class="col-md-9">
                                 		<form:select path= "bookPublisher" id="register-bookPublisher" class="form-control" name="bookPublisher" required="required">
-                                			<form:option value = "NONE" label = "Select" itemValue="publisherId" itemLabel="publisherName"/>
-                                			<form:options items="${writerList}" /> 
-                                		</form:select>     	
+                                			<form:option value = "NONE" label = "Select"/>
+                                			<form:options items="${publisherList}" itemValue="publisherId" itemLabel="publisherName"/> 
+                                		</form:select>
+                                		<!-- Button for Publisher -->
+                                		<div class="form-group2">
+  											<div class="col-md-offset-3 col-md-9">
+                                        		<a id="btn-editPublisher" class="btn btn-info bookButton" href="/showPublisher">Add or Edit Publisher</a>
+                                    		</div>		
+                                    	</div>	     	
                                 	</div>
                                 </div>
                                 <div class="form-group">
@@ -115,9 +121,15 @@
                                 	<label for="bookCategory" class="col-md-3 control-label">Category</label>
                                 	<div class="col-md-9">
                                 		<form:select path= "bookCategory" id="register-bookCategory" class="form-control" name="bookCategory" required="required">
-                                			<form:option value = "NONE" label = "Select" itemValue="categoryId" itemLabel="categoryName"/>
-                                			<form:options items="${categoryList}" /> 
-                                		</form:select>     	
+                                			<form:option value = "NONE" label = "Select"/>
+                                			<form:options items="${categoryList}" itemValue="categoryId" itemLabel="categoryName"/> 
+                                		</form:select>  
+                                		<!-- Button for Category -->
+                                		<div class="form-group2">
+  											<div class="col-md-offset-3 col-md-9">
+                                        		<a id="btn-editCategory" class="btn btn-info bookButton" href="/showCategory">Add or Edit Category</a>
+                                    		</div>		
+                                    	</div>	   	
                                 	</div>
                                 </div>
                                 

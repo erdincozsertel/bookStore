@@ -6,7 +6,7 @@ import com.erdincozsertel.bookstore.domain.Publisher;
 
 public interface PublisherService {
 
-	void save(Publisher publisher);
+	Publisher save(Publisher publisher);
 
 	void update(Publisher publisher);
 
@@ -17,5 +17,7 @@ public interface PublisherService {
 	String getPublisherName(Integer publisherId);
 
 	Publisher getPublisher(Integer publisherId);
+	
+	Publisher getPublisherByName (String publisherName);
 
 }
