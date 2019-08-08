@@ -72,6 +72,11 @@ public class IndexContoller {
 	private Book book() {
 		return new Book();
 	}
+	
+	@ModelAttribute("bookList")
+	private List<Book> bookList() {
+		return bookService.getBookList();
+	}
 
 	@ModelAttribute("categoryList")
 	private List<Category> categoryList() {
