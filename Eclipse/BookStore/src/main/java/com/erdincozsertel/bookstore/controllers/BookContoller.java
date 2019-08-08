@@ -1,5 +1,7 @@
 package com.erdincozsertel.bookstore.controllers;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -93,23 +95,31 @@ public class BookContoller {
 //		model.addAttribute("user", new User());
 		return "bookRegister";
 	}
-	
+
 	@RequestMapping("/bookRegister")
-	public String bookRegister(@Valid @ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
-	Book existing = bookService.getBookByName(book.getBookName());
-	if (existing != null) {
-		result.rejectValue("bookName", null, "There is already a book registered with that name");
+	public String bookRegister(@ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
+		if (book.getBookName() != null && book.getBookWriter() != null && book.getBookPublisher() != null
+				&& !(book.getBookPrice().equals(null)) && book.getBookPrice().compareTo(BigDecimal.ZERO) > 0
+				&& book.getBookCategory() != null) {
+			Book existing = bookService.getBookByName(book.getBookName());
+			if (existing != null) {
+				result.rejectValue("bookName", null, "There is already a book registered with that name");
+			}
+			if (result.hasErrors()) {
+				return "error";
+			}
+			LocalDateTime localDate = LocalDateTime.now();
+			book.setInsertDate(localDate);
+			book = bookService.save(book);
+			if (book == null) {
+				return "redirect:/addBook";
+			} else {
+				return "redirect:";
+			}
+		} else {
+			return "redirect:/addBook";
+		}
 	}
-	if (result.hasErrors()) {
-		return "error";
-	}		
-	book = bookService.save(book);
-	if (book == null) {
-		return "bookRegister";
-	} else {
-		return "redirect:";
-	}		
-}
 
 	@RequestMapping("/showWriter")
 	public String showWriter() {

@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -29,8 +31,10 @@ public class Book {
 	private Writer bookWriter;
 	@ManyToOne
 	private Publisher bookPublisher;
-	@Column(nullable = false)
-	@NotEmpty()
+//	@Column(nullable = false /*, precision=5, scale=2*/)
+//	@DecimalMin("0.00")
+//	@DecimalMax("999.99")
+//	@NotEmpty()
 	private BigDecimal bookPrice;
 	@ManyToOne
 	private Category bookCategory;
