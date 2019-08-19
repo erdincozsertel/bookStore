@@ -64,36 +64,31 @@
   
   <div class="container">
   
-  	<div id="publisherBox" style="margin-top:50px;" >
+  	<div id="categoryBox" style="margin-top:50px;" >
   		<div class="panel panel-info">
   			<div class="panel-heading">
-  				<div class="panel-title">Publisher List</div>
+  				<div class="panel-title">Category: ${thisCategory.categoryName}</div>
  			</div>  
   			<div class="panel-body" style="padding-top:30px" >
   				<table border="1" cellpadding="5" class="table table-bordered table-lg">
-			<caption>List of Publishers</caption>
 			<tr>
-				<th>Publisher Name</th>
-				<th colspan="2"> Update</th>
+				<th>Category Name</th>
+				<th>Update</th>
 			</tr>
-				<c:forEach items="${publisherList}" var="publisher">
 			<tr>
-					<td>${publisher.publisherName}</td>
-				<form:form action="/editPublisher" method="post">
-					<td><button type="submit" name="publisherId" value=${publisher.publisherId}>Edit</button></td>
-				</form:form>
-				<form:form action="/deletePublisher" method="post">
-					<td><button type="submit" name="publisherId" value=${publisher.publisherId}>Delete!</button></td>
-				</form:form>
+					<td>${thisCategory.categoryName}</td>
+					<td></td>
 			</tr>
-				</c:forEach>
 			<tr>
-				<form:form id="addPublisherForm" class="form-horizontal" action="/addPublisher" modelAttribute="publisher" method="post">
+				<form:form id="editCategoryForm" class="form-horizontal" action="/editCategoryPage" modelAttribute="category" method="post">
 					<td>
-						<form:input path="publisherName" id="publisher-name" type="text" class="form-control" name="publisherName" placeholder="Name of the Publisher" required="required"/>
-					</td>			
-					<td colspan="2">
-						<input id="btn-addPublisher" type="submit" value="Add Publisher" class="btn btn-success"/>
+						<form:input path="categoryId" id="category-id" type="hidden" class="form-control" value ="${thisCategory.categoryId}"/>
+						<form:input path="categoryName" id="category-name" type="text" class="form-control" 
+						name="categoryName" placeholder="Name of the Category" required="required" 
+						value="${thisCategory.categoryName}"/>
+					</td>
+					<td>
+						<input id="btn-editCategory" type="submit" value="Edit Category" class="btn btn-success"/>
 					</td>
 				</form:form>
 			</tr>

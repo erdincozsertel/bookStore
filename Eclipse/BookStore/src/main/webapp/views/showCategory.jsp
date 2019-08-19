@@ -79,10 +79,12 @@
 				<c:forEach items="${categoryList}" var="category">
 			<tr>
 					<td>${category.categoryName}</td>
-				<form action="/writer">
-					<td><button type="submit" name="editCategory" value=${category.categoryId} formmethod="post">Edit</button></td>
-					<td><button type="submit" name="deleteCategory" value=${category.categoryId} formmethod="post">Delete!</button></td>
-				</form>
+				<form:form action="/editCategory" method="post">
+					<td><button type="submit" name="categoryId" value=${category.categoryId}>Edit</button></td>
+				</form:form>
+				<form:form action="/deleteCategory" method="post">
+					<td><button type="submit" name="categoryId" value=${category.categoryId}>Delete!</button></td>
+				</form:form>
 			</tr>
 				</c:forEach>
 			<tr>

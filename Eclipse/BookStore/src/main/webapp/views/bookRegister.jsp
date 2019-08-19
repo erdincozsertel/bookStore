@@ -132,6 +132,12 @@
                                     	</div>	   	
                                 	</div>
                                 </div>
+                                <div class="form-group">
+                                   <label for="bookDescription" class="col-md-3 control-label">Book Description</label>
+                                   <div class="col-md-9">
+                                       <form:textarea path="bookDescription" id="register-bookDescription" type="" class="form-control" name="bookDescription" placeholder="Book Description" rows="4"/>
+                                   </div>
+                               </div>  
 <!--                                 <div class="form-group"> -->
 <!--                                    <label for="bookImage" class="col-md-3 control-label">Book Image</label> -->
 <!--                                    <div class="col-md-9"> -->

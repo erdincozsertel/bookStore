@@ -75,7 +75,13 @@ public class IndexContoller {
 	
 	@ModelAttribute("bookList")
 	private List<Book> bookList() {
-		return bookService.getBookList();
+		List<Book> bList = bookService.getBookList();
+		for (Book book : bList) {
+			if (book.getBookDescription()==null) {
+				book.setBookDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!");
+			}
+		}
+		return bList;
 	}
 
 	@ModelAttribute("categoryList")

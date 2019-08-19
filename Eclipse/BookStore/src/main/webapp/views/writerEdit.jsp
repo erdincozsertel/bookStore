@@ -64,36 +64,44 @@
   
   <div class="container">
   
-  	<div id="publisherBox" style="margin-top:50px;" >
+  	<div id="writerBox" style="margin-top:50px;" >
   		<div class="panel panel-info">
   			<div class="panel-heading">
-  				<div class="panel-title">Publisher List</div>
+  				<div class="panel-title">Writer: ${thisWriter.writerName}</div>
  			</div>  
   			<div class="panel-body" style="padding-top:30px" >
   				<table border="1" cellpadding="5" class="table table-bordered table-lg">
-			<caption>List of Publishers</caption>
 			<tr>
-				<th>Publisher Name</th>
-				<th colspan="2"> Update</th>
+				<th>Writer Name</th>
+				<th>Writer Gender</th>
+				<th>Writer Birth Date</th>
+				<th>Update</th>
 			</tr>
-				<c:forEach items="${publisherList}" var="publisher">
 			<tr>
-					<td>${publisher.publisherName}</td>
-				<form:form action="/editPublisher" method="post">
-					<td><button type="submit" name="publisherId" value=${publisher.publisherId}>Edit</button></td>
-				</form:form>
-				<form:form action="/deletePublisher" method="post">
-					<td><button type="submit" name="publisherId" value=${publisher.publisherId}>Delete!</button></td>
-				</form:form>
+					<td>${thisWriter.writerName}</td>
+					<td>${thisWriter.gender}</td>
+					<td>${thisWriter.birthDate}</td>
+					<td></td>
 			</tr>
-				</c:forEach>
 			<tr>
-				<form:form id="addPublisherForm" class="form-horizontal" action="/addPublisher" modelAttribute="publisher" method="post">
+				<form:form id="editWriterForm" class="form-horizontal" action="/editWriterPage" modelAttribute="writer" method="post">
 					<td>
-						<form:input path="publisherName" id="publisher-name" type="text" class="form-control" name="publisherName" placeholder="Name of the Publisher" required="required"/>
-					</td>			
-					<td colspan="2">
-						<input id="btn-addPublisher" type="submit" value="Add Publisher" class="btn btn-success"/>
+						<form:input path="writerId" id="writer-id" type="hidden" class="form-control" value ="${thisWriter.writerId}"/>
+						<form:input path="writerName" id="writer-name" type="text" class="form-control" 
+						name="writerName" placeholder="Name of the Writer" required="required" 
+						value="${thisWriter.writerName}"/>
+					</td>
+					<td>
+						<form:radiobutton path="gender" id="register-gender" name="gender" value="MALE" checked="checked"/>Male
+						<form:radiobutton path="gender" id="register-gender" name="gender" value="FEMALE"/> Female
+					</td>
+					<td>
+						<form:input path="birthDate" type="date" id ="register-birthdate" class="form-control" 
+						name="birthDate" required="required"
+						value="${thisWriter.birthDate}"/>
+					</td>
+					<td>
+						<input id="btn-addWriter" type="submit" value="Edit Writer" class="btn btn-success"/>
 					</td>
 				</form:form>
 			</tr>

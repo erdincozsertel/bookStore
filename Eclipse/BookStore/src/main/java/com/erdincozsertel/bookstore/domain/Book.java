@@ -11,8 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -41,6 +39,8 @@ public class Book {
 	@Basic
 	private LocalDateTime insertDate;
 
+	private String bookDescription;
+
 	public Book() {
 	}
 
@@ -52,10 +52,11 @@ public class Book {
 		this.bookPrice = book.getBookPrice();
 		this.bookCategory = book.getBookCategory();
 		this.insertDate = book.getInsertDate();
+		this.bookDescription = book.getBookDescription();
 	}
 
 	public Book(Integer bookId, String bookName, Writer bookWriter, Publisher bookPublisher, BigDecimal bookPrice,
-			Category bookCategory, LocalDateTime insertDate) {
+			Category bookCategory, LocalDateTime insertDate, String bookDescription) {
 		this.bookId = bookId;
 		this.bookName = bookName;
 		this.bookWriter = bookWriter;
@@ -63,6 +64,7 @@ public class Book {
 		this.bookPrice = bookPrice;
 		this.bookCategory = bookCategory;
 		this.insertDate = insertDate;
+		this.bookDescription = bookDescription;
 	}
 
 	public Integer getBookId() {
@@ -119,6 +121,14 @@ public class Book {
 
 	public void setInsertDate(LocalDateTime insertDate) {
 		this.insertDate = insertDate;
+	}
+
+	public String getBookDescription() {
+		return bookDescription;
+	}
+
+	public void setBookDescription(String bookDescription) {
+		this.bookDescription = bookDescription;
 	}
 
 }

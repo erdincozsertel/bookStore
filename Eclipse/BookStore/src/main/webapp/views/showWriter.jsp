@@ -83,10 +83,12 @@
 					<td>${writer.writerName}</td>
 					<td>${writer.gender}</td>
 					<td>${writer.birthDate}</td>
-				<form action="/writer">
-					<td><button type="submit" name="editWriter" value=${writer.writerId} formmethod="post">Edit</button></td>
-					<td><button type="submit" name="deleteWriter" value=${writer.writerId} formmethod="post">Delete!</button></td>
-				</form>
+				<form:form action="/editWriter" method="post">
+					<td><button type="submit" name="writerId" value="${writer.writerId}">Edit</button></td>
+				</form:form>
+				<form:form action="/deleteWriter" method="post">
+					<td><button type="submit" name="writerId" value="${writer.writerId}">Delete!</button></td>
+				</form:form>
 			</tr>
 				</c:forEach>
 			<tr>
