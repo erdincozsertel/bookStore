@@ -104,5 +104,11 @@ public class CategoryContoller {
 			return "redirect:/showCategory";
 		}
 	}
+	
+	@RequestMapping("/lookBooks4Category")
+	public String lookBooks4Category(@RequestParam String categoryId, Model model) {
+		model.addAttribute("searchedBooks", categoryService.getCategory(Integer.valueOf(categoryId)).getBooks());
+		return "bookResult";
+	}
 
 }
