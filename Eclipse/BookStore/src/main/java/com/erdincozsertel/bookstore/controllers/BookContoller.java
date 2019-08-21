@@ -60,11 +60,6 @@ public class BookContoller {
 		return bookService.getBookList();
 	}
 
-	@ModelAttribute("category")
-	private Category category() {
-		return new Category();
-	}
-
 	@ModelAttribute("categoryList")
 	private List<Category> categoryList() {
 		return categoryService.getCategoryList();
@@ -182,63 +177,12 @@ public class BookContoller {
 		}
 	}
 
-	@RequestMapping("/showCategory")
-	public String showCategory() {
-		return "showCategory";
-	}
-
-	@RequestMapping("/addCategory")
-	public String addCategory(@Valid @ModelAttribute("category") Category category, BindingResult result,
-			ModelMap model) {
-		if (category.getCategoryName() != null) {
-			Category existing = categoryService.getCategoryByName(category.getCategoryName());
-			if (existing != null) {
-				result.rejectValue("category", null, "There is already a category with that name");
-			}
-			if (result.hasErrors()) {
-				return "error";
-			}
-			category = categoryService.save(category);
-			if (category == null) {
-				return "redirect:/showCategory";
-			} else {
-				return "redirect:/addBook";
-			}
-		} else {
-			return "redirect:/addBook";
-		}
-	}
-
-//	@RequestMapping("/writerEditOrDelete")
-//	public String writerEdit(@RequestParam String editOrDelete, Model model) {
-//		String req = editOrDelete;
-//		String[] reqArr = req.split("C", 2);
-//		Integer bookId = Integer.valueOf(reqArr[0]);
-//		req = reqArr[1];
-//		String options = "deleteCedit";
-//		String[] option = options.split("C", 2);
-//		if (req == option[0]) 
-//		{
-//			writerService.delete(bookId);
-//			return "redirect:/showWriter";
-//		} 
-//		else if (req == option[1]) 
-//		{
-//			model.addAttribute("thisWriter", writerService.getWriter(bookId));
-//			return "writerEdit";
-//		} 
-//		else 
-//		{
-//			return "redirect:/showWriter";
-//		}
-//	}
-	
 	@RequestMapping("/deleteWriter")
 	public String deleteWriter(@RequestParam String writerId, Model model) {
 		writerService.delete(Integer.valueOf(writerId));
 		return "redirect:/showWriter";
 	}
-	
+
 	@RequestMapping("/editWriter")
 	public String editWriter(@RequestParam String writerId, Model model) {
 		model.addAttribute("thisWriter", writerService.getWriter(Integer.valueOf(writerId)));
@@ -258,13 +202,13 @@ public class BookContoller {
 			return "redirect:/showWriter";
 		}
 	}
-	
+
 	@RequestMapping("/deletePublisher")
 	public String deletePublisher(@RequestParam String publisherId, Model model) {
 		publisherService.delete(Integer.valueOf(publisherId));
 		return "redirect:/showPublisher";
 	}
-	
+
 	@RequestMapping("/editPublisher")
 	public String editPublisher(@RequestParam String publisherId, Model model) {
 		model.addAttribute("thisPublisher", publisherService.getPublisher(Integer.valueOf(publisherId)));
@@ -272,7 +216,8 @@ public class BookContoller {
 	}
 
 	@RequestMapping("/editPublisherPage")
-	public String editPublisherPage(@Valid @ModelAttribute("publisher") Publisher publisher, BindingResult result, ModelMap model) {
+	public String editPublisherPage(@Valid @ModelAttribute("publisher") Publisher publisher, BindingResult result,
+			ModelMap model) {
 		if (publisher.getPublisherId() != null && publisher.getPublisherName() != null) {
 			publisher = publisherService.save(publisher);
 			if (publisher == null) {
@@ -284,39 +229,13 @@ public class BookContoller {
 			return "redirect:/showPublisher";
 		}
 	}
-	
-	@RequestMapping("/deleteCategory")
-	public String deleteCategory(@RequestParam String categoryId, Model model) {
-		categoryService.delete(Integer.valueOf(categoryId));
-		return "redirect:/showCategory";
-	}
-	
-	@RequestMapping("/editCategory")
-	public String editCategory(@RequestParam String categoryId, Model model) {
-		model.addAttribute("thisCategory", categoryService.getCategory(Integer.valueOf(categoryId)));
-		return "categoryEdit";
-	}
 
-	@RequestMapping("/editCategoryPage")
-	public String editCategoryPage(@Valid @ModelAttribute("category") Category category, BindingResult result, ModelMap model) {
-		if (category.getCategoryId() != null && category.getCategoryName() != null) {
-			category = categoryService.save(category);
-			if (category == null) {
-				return "redirect:/showCategory";
-			} else {
-				return "redirect:/addBook";
-			}
-		} else {
-			return "redirect:/showCategory";
-		}
-	}
-	
 	@RequestMapping("/deleteBook")
 	public String deleteBook(@RequestParam String bookId, Model model) {
 		bookService.delete(Integer.valueOf(bookId));
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping("/editBook")
 	public String editBook(@RequestParam String bookId, Model model) {
 		model.addAttribute("thisBook", bookService.getBook(Integer.valueOf(bookId)));

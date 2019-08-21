@@ -76,13 +76,13 @@
   						<span></span>
   					</div>   
                                <div class="form-group">
-                                   <label for="bookName" class="col-md-3 control-label">Book Name</label>
+                                   <label for="bookName" class="col-md-3 control-label">Book Name:</label>
                                    <div class="col-md-9">
                                        <form:input path="bookName" id="register-bookName" type="text" class="form-control" name="bookName" placeholder="Book Name" required="required"/>
                                    </div>
                                </div>    
                                <div class="form-group">
-                                	<label for="bookWriter" class="col-md-3 control-label">Writer</label>
+                                	<label for="bookWriter" class="col-md-3 control-label">Writer:</label>
                                 	<div class="col-md-9">
                                 		<form:select path= "bookWriter" id="register-bookWriter" class="form-control" name="bookWriter" required="required">
                                 			<form:option value = "NONE" label = "Select"/>
@@ -97,7 +97,7 @@
                                 	</div>
                                 </div>
                                 <div class="form-group">
-                                	<label for="bookPublisher" class="col-md-3 control-label">Publisher</label>
+                                	<label for="bookPublisher" class="col-md-3 control-label">Publisher:</label>
                                 	<div class="col-md-9">
                                 		<form:select path= "bookPublisher" id="register-bookPublisher" class="form-control" name="bookPublisher" required="required">
                                 			<form:option value = "NONE" label = "Select"/>
@@ -112,13 +112,13 @@
                                 	</div>
                                 </div>
                                 <div class="form-group">
-                                   <label for="bookPrice" class="col-md-3 control-label">Book Price</label>
+                                   <label for="bookPrice" class="col-md-3 control-label">Book Price:</label>
                                    <div class="col-md-9">
                                        <form:input path="bookPrice" id="register-bookPrice" type="number" step="0.01" min="0.01" max="999.99" class="form-control" name="bookPrice" placeholder="Book Price" required="required"/>
                                    </div>
                                </div>
                                <div class="form-group">
-                                	<label for="bookCategory" class="col-md-3 control-label">Category</label>
+                                	<label for="bookCategory" class="col-md-3 control-label">Category:</label>
                                 	<div class="col-md-9">
                                 		<form:select path= "bookCategory" id="register-bookCategory" class="form-control" name="bookCategory" required="required">
                                 			<form:option value = "NONE" label = "Select"/>
@@ -133,7 +133,7 @@
                                 	</div>
                                 </div>
                                 <div class="form-group">
-                                   <label for="bookDescription" class="col-md-3 control-label">Book Description</label>
+                                   <label for="bookDescription" class="col-md-3 control-label">Book Description:</label>
                                    <div class="col-md-9">
                                        <form:textarea path="bookDescription" id="register-bookDescription" type="" class="form-control" name="bookDescription" placeholder="Book Description" rows="4"/>
                                    </div>

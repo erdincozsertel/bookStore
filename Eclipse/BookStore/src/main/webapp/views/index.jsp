@@ -69,8 +69,9 @@
         <h1 class="my-4">Shop Name</h1>
         <div class="list-group">
           <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+          <c:forEach items="${categoryList}" var="category">
+          	<a href="/lookBooks4?categoryId=${category.categoryId}" class="list-group-item" name=categoryId value="${category.categoryId}">${category.categoryName}</a>           
+          </c:forEach>
         </div>
 
       </div>
