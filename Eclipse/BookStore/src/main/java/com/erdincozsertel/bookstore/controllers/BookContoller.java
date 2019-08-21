@@ -37,9 +37,6 @@ public class BookContoller {
 	private MessageRepository messageRepository;
 
 	@Autowired
-	private WriterService writerService;
-
-	@Autowired
 	private CategoryService categoryService;
 
 	@Autowired
@@ -58,16 +55,6 @@ public class BookContoller {
 	@ModelAttribute("categoryList")
 	private List<Category> categoryList() {
 		return categoryService.getCategoryList();
-	}
-
-	@ModelAttribute("writer")
-	private Writer writer() {
-		return new Writer();
-	}
-
-	@ModelAttribute("writerList")
-	public List<Writer> writerList() {
-		return writerService.getWriterList();
 	}
 
 	@RequestMapping("/addBook")
@@ -109,58 +96,6 @@ public class BookContoller {
 		}
 	}
 
-	@RequestMapping("/showWriter")
-	public String showWriter() {
-		return "showWriter";
-	}
-
-	@RequestMapping("/addWriter")
-	public String addWriter(@Valid @ModelAttribute("writer") Writer writer, BindingResult result, ModelMap model) {
-		if (writer.getWriterName() != null && writer.getBirthDate() != null) {
-			Writer existing = writerService.getWriterByName(writer.getWriterName());
-			if (existing != null) {
-				result.rejectValue("writer", null, "There is already a writer with that name");
-			}
-			if (result.hasErrors()) {
-				return "error";
-			}
-			writer = writerService.save(writer);
-			if (writer == null) {
-				return "redirect:/showWriter";
-			} else {
-				return "redirect:/addBook";
-			}
-		} else {
-			return "redirect:/addBook";
-		}
-	}
-
-	@RequestMapping("/deleteWriter")
-	public String deleteWriter(@RequestParam String writerId, Model model) {
-		writerService.delete(Integer.valueOf(writerId));
-		return "redirect:/showWriter";
-	}
-
-	@RequestMapping("/editWriter")
-	public String editWriter(@RequestParam String writerId, Model model) {
-		model.addAttribute("thisWriter", writerService.getWriter(Integer.valueOf(writerId)));
-		return "writerEdit";
-	}
-
-	@RequestMapping("/editWriterPage")
-	public String editWriterPage(@Valid @ModelAttribute("writer") Writer writer, BindingResult result, ModelMap model) {
-		if (writer.getWriterId() != null && writer.getWriterName() != null && writer.getBirthDate() != null) {
-			writer = writerService.save(writer);
-			if (writer == null) {
-				return "redirect:/showWriter";
-			} else {
-				return "redirect:/addBook";
-			}
-		} else {
-			return "redirect:/showWriter";
-		}
-	}
-
 	@RequestMapping("/deleteBook")
 	public String deleteBook(@RequestParam String bookId, Model model) {
 		bookService.delete(Integer.valueOf(bookId));
@@ -186,5 +121,4 @@ public class BookContoller {
 			return "redirect:/";
 		}
 	}
-
 }
