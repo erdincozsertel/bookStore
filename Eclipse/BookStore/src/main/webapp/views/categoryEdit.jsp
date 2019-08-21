@@ -77,7 +77,11 @@
 			</tr>
 			<tr>
 					<td>${thisCategory.categoryName}</td>
-					<td></td>
+					<form:form action="/deleteCategory" method="post">
+						<td>
+							<button type="submit" name="categoryId" value="${thisCategory.categoryId}">Delete!</button>
+						</td>
+					</form:form>
 			</tr>
 			<tr>
 				<form:form id="editCategoryForm" class="form-horizontal" action="/editCategoryPage" modelAttribute="category" method="post">

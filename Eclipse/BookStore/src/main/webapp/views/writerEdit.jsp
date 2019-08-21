@@ -81,7 +81,11 @@
 					<td>${thisWriter.writerName}</td>
 					<td>${thisWriter.gender}</td>
 					<td>${thisWriter.birthDate}</td>
-					<td></td>
+					<form:form action="/deleteWriter" method="post">
+						<td>
+							<button type="submit" name="writerId" value="${thisWriter.writerId}">Delete!</button>
+						</td>
+					</form:form>
 			</tr>
 			<tr>
 				<form:form id="editWriterForm" class="form-horizontal" action="/editWriterPage" modelAttribute="writer" method="post">

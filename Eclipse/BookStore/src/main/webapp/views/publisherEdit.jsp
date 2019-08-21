@@ -77,7 +77,11 @@
 			</tr>
 			<tr>
 					<td>${thisPublisher.publisherName}</td>
-					<td></td>
+					<form:form action="/deletePublisher" method="post">
+						<td>
+							<button type="submit" name="publisherId" value="${thisPublisher.publisherId}">Delete!</button>
+						</td>
+					</form:form>
 			</tr>
 			<tr>
 				<form:form id="editPublisherForm" class="form-horizontal" action="/editPublisherPage" modelAttribute="publisher" method="post">

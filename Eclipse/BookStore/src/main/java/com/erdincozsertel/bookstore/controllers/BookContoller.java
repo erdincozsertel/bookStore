@@ -310,5 +310,31 @@ public class BookContoller {
 			return "redirect:/showCategory";
 		}
 	}
+	
+	@RequestMapping("/deleteBook")
+	public String deleteBook(@RequestParam String bookId, Model model) {
+		bookService.delete(Integer.valueOf(bookId));
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/editBook")
+	public String editBook(@RequestParam String bookId, Model model) {
+		model.addAttribute("thisBook", bookService.getBook(Integer.valueOf(bookId)));
+		return "bookEdit";
+	}
+
+	@RequestMapping("/editBookPage")
+	public String editBookPage(@Valid @ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
+		if (book.getBookId() != null && book.getBookName() != null && book.getBookPrice() != null) {
+			book = bookService.save(book);
+			if (book == null) {
+				return "redirect:/";
+			} else {
+				return "redirect:/";
+			}
+		} else {
+			return "redirect:/";
+		}
+	}
 
 }
