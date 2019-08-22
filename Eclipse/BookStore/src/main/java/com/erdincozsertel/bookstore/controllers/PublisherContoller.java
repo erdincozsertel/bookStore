@@ -77,8 +77,12 @@ public class PublisherContoller {
 
 	@RequestMapping("/deletePublisher")
 	public String deletePublisher(@RequestParam String publisherId, Model model) {
-		publisherService.delete(Integer.valueOf(publisherId));
-		return "redirect:/showPublisher";
+		if (publisherService.getPublisher(Integer.valueOf(publisherId)).getBooks().isEmpty()) {
+			publisherService.delete(Integer.valueOf(publisherId));
+			return "redirect:/showPublisher";
+		} else {
+			return "redirect:/showPublisher";
+		}
 	}
 
 	@RequestMapping("/editPublisher")

@@ -13,10 +13,10 @@
   <title>Shop Homepage</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
+  <link href="/css/shop-homepage.css" rel="stylesheet">
   
     <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -28,7 +28,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="/"><img src="book.png" alt="logo" style="width:70px;"></a>
+      <a class="navbar-brand" href="/"><img src="/book.png" alt="logo" style="width:70px;"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,7 +49,7 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-          	<a class="nav-link" href="/addBook">Add Book</a>
+          	<a class="nav-link" href="/admin">Admin Dashboard</a>
           </li>
           <li class="nav-item">
           	<a class="nav-link" href="/userlogin">Log in</a>
@@ -66,9 +66,9 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4">Book Shop</h1>
         <div class="list-group">
-<!--      	<a href="#" class="list-group-item">Category 1</a> -->
+      	<a href="/allBooksList" class="list-group-item">All Books</a> 
           <c:forEach items="${categoryList}" var="category">
           	<a href="/lookBooks4Category?categoryId=${category.categoryId}" class="list-group-item" name=categoryId value="${category.categoryId}">${category.categoryName}</a>           
           </c:forEach>

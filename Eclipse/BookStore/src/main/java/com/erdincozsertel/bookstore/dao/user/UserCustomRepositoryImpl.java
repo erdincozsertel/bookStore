@@ -8,8 +8,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Repository;
 
 import com.erdincozsertel.bookstore.domain.User;
@@ -35,10 +35,10 @@ public class UserCustomRepositoryImpl implements UserCustomRepository {
 		return (User) criteria.uniqueResult();
 	}
 	
-	private static Collection<? extends GrantedAuthority> getAuthorities(User user) {
-        String[] userRoles = user.getRoles().stream().map((role) -> role.getName()).toArray(String[]::new);
-        Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(userRoles);
-        return authorities;
-    }
+//	private static Collection<? extends GrantedAuthority> getAuthorities(User user) {
+//        String[] userRoles = user.getRoles().stream().map((role) -> role.getName()).toArray(String[]::new);
+//        Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(userRoles);
+//        return authorities;
+//    }
 
 }

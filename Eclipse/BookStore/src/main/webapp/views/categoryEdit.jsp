@@ -16,10 +16,10 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
+  <link href="/css/shop-homepage.css" rel="stylesheet">
   
     <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -31,7 +31,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="/"><img src="book.png" alt="logo" style="width:70px;"></a>
+      <a class="navbar-brand" href="/"><img src="/book.png" alt="logo" style="width:70px;"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,9 +49,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
-          <li class="nav-item active">
-          	<a class="nav-link" href="/addBook">Add Book</a>
-          </li>
+          <li class="nav-item">
+          	<a class="nav-link" href="/admin">Admin Dashboard</a>
+          </li>   
           <li class="nav-item">
             <a class="nav-link" href="/userlogin">Log in</a>
           </li>

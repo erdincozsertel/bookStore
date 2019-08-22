@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.erdincozsertel.bookstore.dao.MessageRepository;
 import com.erdincozsertel.bookstore.domain.Book;
 import com.erdincozsertel.bookstore.domain.Category;
+import com.erdincozsertel.bookstore.domain.Publisher;
 import com.erdincozsertel.bookstore.domain.Writer;
 import com.erdincozsertel.bookstore.service.book.BookService;
 import com.erdincozsertel.bookstore.service.category.CategoryService;
+import com.erdincozsertel.bookstore.service.publisher.PublisherService;
 import com.erdincozsertel.bookstore.service.writer.WriterService;
 
 @Controller
@@ -38,6 +40,12 @@ public class BookContoller {
 
 	@Autowired
 	private CategoryService categoryService;
+
+	@Autowired
+	private PublisherService publisherService;
+
+	@Autowired
+	private WriterService writerService;
 
 	@Autowired
 	private BookService bookService;
@@ -57,68 +65,87 @@ public class BookContoller {
 		return categoryService.getCategoryList();
 	}
 
+	@ModelAttribute("publisherList")
+	private List<Publisher> publisherList() {
+		return publisherService.getPublisherList();
+	}
+
+	@ModelAttribute("writerList")
+	public List<Writer> writerList() {
+		return writerService.getWriterList();
+	}
+
 	@RequestMapping("/addBook")
 	public String addBook(Model model) {
-//		model.addAttribute("userLogin", new UserForm());
-//		model.addAttribute("user", new User());
 		return "bookRegister";
 	}
 
-	@RequestMapping("/bookRegister")
-	public String bookRegister(@ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
-		String description = book.getBookDescription();
-		if (description == null) {
-			description = "";
-		} else if (description.length() > 250) {
-			description.substring(0, 250);
-			description.concat(" ...");
-		}
-		if (book.getBookName() != null && book.getBookWriter() != null && book.getBookPublisher() != null
-				&& !(book.getBookPrice().equals(null)) && book.getBookPrice().compareTo(BigDecimal.ZERO) > 0
-				&& book.getBookCategory() != null) {
-			Book existing = bookService.getBookByName(book.getBookName());
-			if (existing != null) {
-				result.rejectValue("bookName", null, "There is already a book registered with that name");
-			}
-			if (result.hasErrors()) {
-				return "error";
-			}
-			LocalDateTime localDate = LocalDateTime.now();
-			book.setInsertDate(localDate);
-			book = bookService.save(book);
-			if (book == null) {
-				return "redirect:/addBook";
-			} else {
-				return "redirect:";
-			}
-		} else {
-			return "redirect:/addBook";
-		}
-	}
+//	@RequestMapping("/bookRegister")
+//	public String bookRegister(@ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
+//		String description = book.getBookDescription();
+//		if (description == null) {
+//			description = "";
+//		} else if (description.length() > 250) {
+//			description.substring(0, 250);
+//			description.concat(" ...");
+//		}
+//		if (book.getBookName() != null && book.getBookWriter() != null && book.getBookPublisher() != null
+//				&& !(book.getBookPrice().equals(null)) && book.getBookPrice().compareTo(BigDecimal.ZERO) > 0
+//				&& book.getBookCategory() != null) {
+//			Book existing = bookService.getBookByName(book.getBookName());
+//			if (existing != null) {
+//				result.rejectValue("bookName", null, "There is already a book registered with that name");
+//			}
+//			if (result.hasErrors()) {
+//				return "error";
+//			}
+//			LocalDateTime localDate = LocalDateTime.now();
+//			book.setInsertDate(localDate);
+//			book = bookService.save(book);
+//			if (book == null) {
+//				return "redirect:/addBook";
+//			} else {
+//				return "redirect:";
+//			}
+//		} else {
+//			return "redirect:/addBook";
+//		}
+//	}
 
-	@RequestMapping("/deleteBook")
-	public String deleteBook(@RequestParam String bookId, Model model) {
-		bookService.delete(Integer.valueOf(bookId));
-		return "redirect:/";
-	}
+//	@RequestMapping("/deleteBook")
+//	public String deleteBook(@RequestParam String bookId, Model model) {
+//		bookService.delete(Integer.valueOf(bookId));
+//		return "redirect:/";
+//	}
+//
+//	@RequestMapping("/editBook")
+//	public String editBook(@RequestParam String bookId, Model model) {
+//		model.addAttribute("thisBook", bookService.getBook(Integer.valueOf(bookId)));
+//		return "bookEdit";
+//	}
 
-	@RequestMapping("/editBook")
-	public String editBook(@RequestParam String bookId, Model model) {
-		model.addAttribute("thisBook", bookService.getBook(Integer.valueOf(bookId)));
-		return "bookEdit";
-	}
-
-	@RequestMapping("/editBookPage")
-	public String editBookPage(@Valid @ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
-		if (book.getBookId() != null && book.getBookName() != null && book.getBookPrice() != null) {
-			book = bookService.save(book);
-			if (book == null) {
-				return "redirect:/";
-			} else {
-				return "redirect:/";
-			}
-		} else {
-			return "redirect:/";
-		}
+//	@RequestMapping("/editBookPage")
+//	public String editBookPage(@Valid @ModelAttribute("book") Book book, BindingResult result, ModelMap model) {
+//		if (book.getBookId() != null && book.getBookName() != null && book.getBookPrice() != null) {
+//			book = bookService.save(book);
+//			if (book == null) {
+//				return "redirect:/";
+//			} else {
+//				return "redirect:/";
+//			}
+//		} else {
+//			return "redirect:/";
+//		}
+//	}
+	
+//	@RequestMapping("/bookTable")
+//	public String adminBookTable(Model model) {
+//		return "adminBookTable";
+//	}
+	
+	@RequestMapping("/allBooksList")
+	public String allBooksList(Model model) {
+		model.addAttribute("searchedBooks", bookService.getBookList());
+		return "bookResult";
 	}
 }

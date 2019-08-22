@@ -80,8 +80,13 @@ public class WriterContoller {
 
 	@RequestMapping("/deleteWriter")
 	public String deleteWriter(@RequestParam String writerId, Model model) {
-		writerService.delete(Integer.valueOf(writerId));
-		return "redirect:/showWriter";
+		if (writerService.getWriter(Integer.valueOf(writerId)).getBooks().isEmpty()) {
+			writerService.delete(Integer.valueOf(writerId));
+			return "redirect:/showWriter";
+		} else {
+			return "redirect:/showWriter";
+
+		}
 	}
 
 	@RequestMapping("/editWriter")

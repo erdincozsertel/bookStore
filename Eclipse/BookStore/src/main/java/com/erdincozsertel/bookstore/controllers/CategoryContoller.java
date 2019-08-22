@@ -80,8 +80,12 @@ public class CategoryContoller {
 
 	@RequestMapping("/deleteCategory")
 	public String deleteCategory(@RequestParam String categoryId, Model model) {
-		categoryService.delete(Integer.valueOf(categoryId));
-		return "redirect:/showCategory";
+		if (categoryService.getCategory(Integer.valueOf(categoryId)).getBooks().isEmpty()) {
+			categoryService.delete(Integer.valueOf(categoryId));
+			return "redirect:/showCategory";
+		} else {
+			return "redirect:/showCategory";
+		}
 	}
 
 	@RequestMapping("/editCategory")
@@ -104,7 +108,7 @@ public class CategoryContoller {
 			return "redirect:/showCategory";
 		}
 	}
-	
+
 	@RequestMapping("/lookBooks4Category")
 	public String lookBooks4Category(@RequestParam String categoryId, Model model) {
 		model.addAttribute("searchedBooks", categoryService.getCategory(Integer.valueOf(categoryId)).getBooks());
